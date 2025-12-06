@@ -1,4 +1,9 @@
-const API_URL = 'http://localhost:8081';
+const API_URL = (process.env.NEXT_PUBLIC_API_URL as string) || 'http://localhost:8081';
+// Debug: log the resolved API URL in the browser console for verification
+if (typeof window !== 'undefined') {
+    // eslint-disable-next-line no-console
+    console.debug('TrustGuard API URL:', API_URL);
+}
 
 // Type Definitions
 export interface AnalyzeResponse {
